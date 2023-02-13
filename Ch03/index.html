@@ -17,27 +17,36 @@
     <div id="root"></div>
 
     <script type="text/babel">
-      function Header() {
+      function Header(props) {
         return (
           <header>
-            <h1>Eve's Kitchen</h1>
+            <h1>{props.name}'s Kitchen</h1>
           </header>
         )
       }
 
-      function Main() {
+      function Main(props) {
         return (
           <section>
-            <p>We serve the best food in the PH!</p>
+            <p>We serve the most {props.adjective} food in the PH!</p>
           </section>
+        )
+      }
+
+      function Footer(props) {
+        return (
+          <footer>
+            <p>Copyright {props.year}</p>
+          </footer>
         )
       }
 
       function App() {
         return (
           <div>
-            <Header />
-            <Main />
+            <Header name="Naica" />
+            <Main adjective="amazing"/>
+            <Footer year={new Date().getFullYear()}/>
           </div>
         )
       }
