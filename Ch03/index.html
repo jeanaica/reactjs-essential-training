@@ -64,11 +64,11 @@
 
       function App() {
         return (
-          <div>
+          <React.Fragment>
             <Header name="Naica" />
             <Main dishes={dishObjects}/>
             <Footer year={new Date().getFullYear()}/>
-          </div>
+          </React.Fragment>
         )
       }
 
