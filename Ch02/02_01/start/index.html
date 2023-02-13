@@ -16,11 +16,18 @@
   <body>
     <div id="root"></div>
     <script type="text/babel">
+      let happy = '^v^'
+      let worried = '^-^'
+      let shocked = '^o^'
+      let name = 'React'
+
       ReactDOM.render(
         <ul>
-          <li>^v^</li>
-          <li>^-^</li>
-          <li>^o^</li>
+          <li>{happy}</li>
+          <li>{worried}</li>
+          <li>{shocked}</li>
+          <li>{name.toUpperCase()}</li>
+          <li>{name.length}</li>
         </ul>,
         document.getElementById("root")
       )
