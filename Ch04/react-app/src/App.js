@@ -1,9 +1,14 @@
 import './App.css';
 
-function App() {
+const [firstCity, second] = ['Tokyo', 'Manila', 'Milan'];
+
+console.log(firstCity);
+console.log(second);
+
+function App({ library }) {
   return (
-    <div className="App">
-      <h1>Hello from PH!</h1>
+    <div className='App'>
+      <h1>Hello from {library}!</h1>
     </div>
   );
 }
