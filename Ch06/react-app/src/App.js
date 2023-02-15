@@ -13,24 +13,29 @@ function GithubUser({ name, location, avatar }) {
 
 function App() {
   const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     fetch(`https://api.github.com/users/jeanaica`)
       .then((response) => response.json())
-      .then(setData);
+      .then(setData)
+      .finally(() => setLoading(false))
+      .catch(setError);
   }, []);
 
-  if (data) {
-    return (
-      <GithubUser
-        name={data.name}
-        location={data.location}
-        avatar={data.avatar_url}
-      />
-    );
-  }
+  if (loading) return <h1>Loading...</h1>;
+  if (error) return <pre>{error}</pre>;
+  if (!data) return null;
 
-  return <h1>Data</h1>;
+  return (
+    <GithubUser
+      name={data.name}
+      location={data.location}
+      avatar={data.avatar_url}
+    />
+  );
 }
 
 export default App;
